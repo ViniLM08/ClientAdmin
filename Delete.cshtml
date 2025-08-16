@@ -1,0 +1,8 @@
+@model ClientAdmin.Models.Cliente
+<h1 class="h3">Excluir Cliente</h1>
+<div class="alert alert-warning">Tem certeza que deseja excluir <strong>@Model.Nome</strong>?</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a class="btn btn-secondary" href="/Clients">Cancelar</a>
+</form>
