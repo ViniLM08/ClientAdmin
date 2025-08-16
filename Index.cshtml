@@ -1,0 +1,41 @@
+@{
+    var periodo = (string)ViewBag.Periodo;
+}
+<h1 class="h3 mb-3">Relatórios</h1>
+<div class="mb-3">
+    <a class="btn btn-outline-primary @(periodo=="mes"?"active":null)" href="/Relatorios?periodo=mes">Este mês</a>
+    <a class="btn btn-outline-primary @(periodo=="semana"?"active":null)" href="/Relatorios?periodo=semana">Esta semana</a>
+    <a class="btn btn-outline-primary @(periodo=="hoje"?"active":null)" href="/Relatorios?periodo=hoje">Hoje</a>
+</div>
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Maiores de 18 com renda > média</h5>
+                <p class="display-6">@ViewBag.MaiorIdadeERendaAcimaMedia</p>
+                <small class="text-muted">Renda média do período: R$ @(((decimal)ViewBag.MediaRenda).ToString("N2", new System.Globalization.CultureInfo("pt-BR")))</small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Classes de renda</h5>
+                <div class="d-flex gap-4 flex-wrap">
+                    <div>
+                        <div class="badge-custom badge-red">Classe A</div>
+                        <div class="h4 mt-2">@ViewBag.ClasseA</div>
+                    </div>
+                    <div>
+                        <div class="badge-custom badge-yellow">Classe B</div>
+                        <div class="h4 mt-2">@ViewBag.ClasseB</div>
+                    </div>
+                    <div>
+                        <div class="badge-custom badge-green">Classe C</div>
+                        <div class="h4 mt-2">@ViewBag.ClasseC</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
